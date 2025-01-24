@@ -11,7 +11,7 @@ Lista_tarefas = []
 # Tupla[1] = 9090
 
 Lista_tarefas = []
-
+#var de nome
 Nome = ""
 QuantidadeDeTarefas = 0
 LimiteDeTarefas = 2
