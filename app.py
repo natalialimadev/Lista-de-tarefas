@@ -1,4 +1,4 @@
-from Tarefas import CriarTarefa,ExibirQtdTarefa, ConsultarTarefaPorID
+from Tarefas import CriarTarefa,ExibirQtdTarefa, ConsultarTarefaPorID, ValidarEntrada
 QtdTarefa = 0
 ListaDeTarefas = []
 #Fim das variáveis.
@@ -19,8 +19,9 @@ while(True):
         break
 
     elif Acao.lower() == "consulta":
-        TarefaID = int(input("Qual Tarefa ID você quer consultar ?"))
-        print(ConsultarTarefaPorID(ListaDeTarefas,TarefaID))
+        TarefaID = ValidarEntrada(input("Qual Tarefa ID você quer consultar ?"),"int")
+        if TarefaID != "Erro ao converter Tipo":
+            print(ConsultarTarefaPorID(ListaDeTarefas,TarefaID))
         
     else: 
         print("Digite uma ação válida ")

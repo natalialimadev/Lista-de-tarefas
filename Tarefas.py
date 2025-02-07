@@ -18,7 +18,16 @@
 # Lista = []
 
 def CriarTarefa(QuantidadeDeTarefas,ListaTarefa):
-    ListaTarefa.append({"Id":QuantidadeDeTarefas,"Tarefa":input("Digite a tarefa: "),"Status":"Pendente"})
+    Tarefa = input("Digite a tarefa: ")
+    if "," in Tarefa:
+        print("Múltiplas tarefas sendo adicionadas")
+        Tarefa = Tarefa.split(",")
+        Contador = len(ListaTarefa)
+        for i in Tarefa:
+            ListaTarefa.append({"Id":Contador,"Tarefa":i,"Status":"Pendente"})
+            Contador += 1    
+    else:
+        ListaTarefa.append({"Id":QuantidadeDeTarefas,"Tarefa":Tarefa,"Status":"Pendente"})
     return len(ListaTarefa)
 
 # while(QuantidadeDeTarefas<LimiteDeTarefas):
@@ -47,4 +56,15 @@ def ConsultarTarefaPorID(Lista:list,Id:int):
     Returns:
         List: retorna uma lista a aprtir do ID.
     """
-    return Lista[Id]
+    try:
+        return Lista[Id]
+    except:
+        return "Houve um erro na hora da consulta"
+    
+def ValidarEntrada(Entrada,Tipo):
+    try:
+        if Tipo == "int":
+            return int(Entrada)
+    except:
+        print("Erro ao converter Tipo")
+        return "Erro ao converter Tipo"
