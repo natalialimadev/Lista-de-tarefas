@@ -1,31 +1,29 @@
-#Variáveis do programa:
-Lista_tarefas = []
-
-# Lista = [1,2,4,6]
-# Lista[2] = 10
-
-# Dicionario = {"Idade":20,"Altura":190}
-# Dicionario["Altura"] = 120
-
-# Tupla = (3,5,7)
-# Tupla[1] = 9090
-
-Lista_tarefas = []
-#var de nome
-Nome = ""
-QuantidadeDeTarefas = 0
-LimiteDeTarefas = 2
-
+from Tarefas import CriarTarefa,ExibirQtdTarefa, ConsultarTarefaPorID, ValidarEntrada
+QtdTarefa = 0
+ListaDeTarefas = []
 #Fim das variáveis.
+while(True):
+    Acao = input("O que você quer fazer? ")
+    # print(Acao)
+    # print(Acao.lower())
+    if Acao.lower() == "criar":
+        print("Criando uma tarefa")
+        QtdTarefa= CriarTarefa(QtdTarefa,ListaDeTarefas) # Foi uma criada uma var e o valor dela corresponde ao return do Criar Tarefa.
 
-while(QuantidadeDeTarefas<LimiteDeTarefas):
-    #Tarefa = input("Digite a tarefa: ")
-    Lista_tarefas.append({"Id":QuantidadeDeTarefas,"Tarefa":input("Digite a tarefa: "),"Status":"Pendente"})
-    QuantidadeDeTarefas = len(Lista_tarefas)
-    #print(Lista_tarefas)
-    
-print(Lista_tarefas)
-if len(Lista_tarefas) > 1:
-    print(f"Você tem {QuantidadeDeTarefas} tarefas cadastradas")
-else:
-    print(f"Você tem {QuantidadeDeTarefas} tarefa cadastrada")
+    elif Acao.lower() == "detalhe":
+        print("Consultando tarefa")
+        ExibirQtdTarefa(ListaDeTarefas,QtdTarefa)
+
+    elif Acao.lower() == "sair":
+        print("Você saiu")
+        break
+
+    elif Acao.lower() == "consulta":
+        TarefaID = ValidarEntrada(input("Qual Tarefa ID você quer consultar ?"),"int")
+        if TarefaID != "Erro ao converter Tipo":
+            print(ConsultarTarefaPorID(ListaDeTarefas,TarefaID))
+        
+    else: 
+        print("Digite uma ação válida ")
+
+
