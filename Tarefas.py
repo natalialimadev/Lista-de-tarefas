@@ -56,15 +56,16 @@ def ConsultarTarefaPorID(Lista:list,Id:int):
     Returns:
         List: retorna uma lista a aprtir do ID.
     """
-    try:
+    if len(Lista)-1 >= Id:
         return Lista[Id]
-    except:
+    else:
         return "Houve um erro na hora da consulta"
+
+        
     
-def ValidarEntrada(Entrada,Tipo):
-    try:
-        if Tipo == "int":
+def ValidarEntrada(Entrada):
+        if isinstance(Entrada,int):
             return int(Entrada)
-    except:
-        print("Erro ao converter Tipo")
-        return "Erro ao converter Tipo"
+        else:
+            print("Erro ao converter Tipo")
+            return "Erro ao converter Tipo"

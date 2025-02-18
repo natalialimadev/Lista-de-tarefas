@@ -1,4 +1,5 @@
 from Tarefas import CriarTarefa,ExibirQtdTarefa, ConsultarTarefaPorID, ValidarEntrada
+
 QtdTarefa = 0
 ListaDeTarefas = []
 #Fim das variáveis.
